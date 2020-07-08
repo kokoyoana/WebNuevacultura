@@ -1,0 +1,36 @@
+{% extends 'app/index.html' %} {% load static %} {% load bootstrap4 %}
+{% block content%}
+<div class="container ">
+
+  <div class="row cols-xs-6 text-justify">
+    {% for p in filo %}
+
+
+  </div>
+ 
+   <div class="container">
+  <div class="row media">
+    <div class="col-6 col-xs-12 text-justify">
+    {{ p.filosofiaasociacion }}
+    </div>
+    <div class="col-6 col-xs-12">
+        <img  src="{{ p.imagen.url }}" alt="imagen"> 
+    </div>
+  
+  </div>
+</div>
+  <div class="col desA text-justify mt-3">
+    <h3 style="color: #0067B1;">{{ p.titulomision }}</h3>{{ p.mision }}
+  </div>
+  <div class="col desA text-justify  mt-3">
+    <h3 style="color:#0067B1;">{{ p.titulovision}}</h3>{{ p.vision}}
+  </div>
+  <div class="col desA text-justify  mt-3 mb-5">
+    <h3 style="color:#0067B1;">{{ p.titulovalores}}</h3>{{ p.valores }}
+  </div>
+
+
+  {% endfor %}
+</div>
+
+{% endblock content%}

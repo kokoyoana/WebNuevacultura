@@ -1,0 +1,35 @@
+{% extends 'app/index.html' %} {% load static %} {% load bootstrap4 %} {% block content%}
+
+
+ 
+   
+
+<section class="dento--blog-area mt-50">
+    <div class="container ">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8 mb-100">
+                <!-- Blog Details Area -->
+                <div class="blog-details-area">
+                   
+
+                    <h2 class="post-title titletrat mt-3"style="color: #0067B1;"> {{ infop.titulo }}</h2>
+                    <p class="descripcion text-justify desA mb-5 mt-3">{{ infop.textop }}</p>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- <div class="card-columns">
+    <div class="card bg-primary">
+      <div class="card-body text-center">
+        <p class="card-text">Some text inside the first card</p>
+      </div>
+    </div>
+    <div class="card bg-warning">
+      <div class="card-body text-center">
+        <p class="card-text">Some text inside the second card</p>
+</div> -->
+
+{% endblock content%}

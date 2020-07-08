@@ -1,0 +1,83 @@
+{% extends 'app/index.html' %} {% load static %} {% load bootstrap4 %} {% load i18n %} {% block content%}
+<section class="dento-blog-area">
+    <div class="container blog">
+        <div class="row">
+            <div class="col-12 col-lg-8">
+                {% for p in blog %}
+                <!-- Single Blog Item -->
+                <div class="row align-items-center">
+                    <div class="col-md-6 mt-4">
+                        <img src="{{ p.imagen.url }}" class="" alt="imagenblog">
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card-body">
+                            <h5 class="card-title text-center mt-4" href="#"style="color: #0067B1;">{{ p.titulo }}</h5>
+                            <!--<h5><a class="card-title">{{ p.titulo }}</h5></a>-->
+                            <p class="card-text letraTarje">{{ p.descripcion|truncatechars:213 }}</p>
+                            <a class="leerMas" href="{% url 'app:infoblog' p.id %}">Leer más</a>     
+                            <p class="card-text"><small class="text-muted">{{ p.fecha }}</small></p>
+                        </div>
+                    </div>
+                </div>
+                 
+                {% endfor %}
+ 
+       
+                <!-- Pagination -->
+                <nav class="dento-pagination mb-5 mt-5">
+                    <ul class="pagination pagination-lg  justify-content-center mt-4">
+                        <li class="page-item active">
+                            {% if page_obj.has_previous %}
+                            <a class="page-link" href="?page={{page_obj.previous_page_number}}"><i class="fa fa-angle-left fa-lg"></i></a> {% endif %}
+                        </li>
+                        <li class="page-item">
+                            {% if page_obj.has_next %}
+                            <a class="page-link" href="?page={{page_obj.next_page_number}}"><i class="fa fa-angle-right fa-lg"></i></a> {% endif %}
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+
+
+            <!-- Dento Sidebar Area -->
+            <div class="col-8 col-lg-4 col-12 col-md-6">
+
+                
+
+                    <!-- Single Widget Area -->
+                    <div class="single-widget-area news-widget mt-4 mb-4">
+                        <h5 class="widget-title mb-3">LOS MÁS DESTACADOS</h5>
+
+                        <!-- Single News Area -->
+                        {% for p in destacados %}
+                        <div class="single-news-area row">
+                            <div class="col-4  col-xs-12 mb-3">
+                                <img class="imgdesta" src="{{ p.imagen.url }}" alt="fotodestacada">
+                            </div>
+
+                            <div class="col-4 col-xs-12">
+                                <a class="title" href="{% url 'app:infoblog' p.id %}" class="post-title ">{{ p.titulo }}</a>
+                                <br>
+                                <span class="post-date ">{{ p.fecha }}</span>
+                            </div>
+                        </div>
+                       
+                        {% endfor %}
+                      
+                    </div>
+
+ 
+     
+
+            </div>
+        </div>
+      
+    </div>
+  
+</section>
+
+<!-- *****Blog Area End ***** -->
+
+{% endblock content%}

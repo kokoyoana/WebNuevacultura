@@ -1,0 +1,21 @@
+ {% load static %} {% load bootstrap4 %} {% block content%}
+
+
+<p>Usted ha recibido un email de un nuevo usuario</p>
+
+<dl>
+    <dt>Nombre</dt>
+    <dd>{{nombre}}</dd>
+
+    <dt>Email</dt>
+    <dd>{{email}}</dd>
+
+    <dt>Mensaje</dt>
+    <dd>{{mensaje}}</dd>
+</dl>
+
+
+
+
+
+{% endblock content%}

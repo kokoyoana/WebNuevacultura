@@ -1,0 +1,252 @@
+{% load static %} {% load bootstrap4 %} {% load static i18n %}
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>NuevaCultura</title>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Metal+Mania&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="container-fluid col-xs-12 mark">
+      <nav class="navbar navbar-expand-xl navbar-default">
+        <a href="{% url 'app:inicio' %}">
+          <img class="float-left" src="{% static 'img/sinfondo.png' %}"
+          alt="logo" style="width: 270px;" color: darkorange />
+        </a>
+        <button
+          class="navbar-toggler ml-auto"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon">
+            <i class="fas fa-bars" style="color: darkorange; font-size: 25px;">
+            </i
+          ></span>
+        </button>
+
+        <div
+          class="collapse navbar-collapse justify-content-center"
+          id="navbarNav"
+        >
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'app:asociacion' %} "
+                >La Asociación</a
+              >
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'app:talleres' %} ">Talleres</a>
+            </li>
+            <div class="dropdown">
+              <button
+                type="button"
+                class="nav-link btn dropdown-toggle"
+                data-toggle="dropdown"
+                style="color: darkorange;"
+              >
+                Proyectos
+              </button>
+
+              <div class="dropdown-menu row-cols-xs-6">
+                {% for p in pro %}
+                <a
+                  class="dropdown-item"
+                  href="{% url 'app:infoproyectos' p.id %} "
+                  style="color: darkorange;"
+                >{{ p.titulo }}</a>
+                 {% endfor %}
+        
+              </div>
+            </div>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'app:filosofia' %}">Nuestra Filosofía</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'app:blog' %}">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'app:contactos' %} ">Contacto</a>
+            </li>
+
+           
+          </ul>
+        </div>
+      </nav>
+
+      {% block content%}
+  <div class="container-fluid">
+   {% for p in ini%} {% autoescape off %}
+  
+        <!--Grid row-->
+        <div class="row cols-md-6  row-col-xs-12">
+          <!-- Video -->
+          <div class="embed-responsive embed-responsive-16by9 mb-4">
+            <iframe
+              class="embed-responsive-item"
+              src="{{ p.youtube }} "
+              allowfullscreen
+            ></iframe>
+          </div>
+           </div>
+              <div class="row cols-xs-12 ">
+
+            <div class="col-md-6 cols-xs-12 embed-responsive mb-5 mt-3">
+
+  {{ p.iframe1 }}
+            </div>
+              <div class="col-md-6 cols-xs-12 embed-responsive  mb-5 mt-3">
+
+  {{ p.iframe2 }}
+            </div>
+             
+              
+
+            <div class="col-md-6 col-xs-12 embed-responsive mb-5">
+
+  {{ p.iframe3 }}
+            </div>
+              <div class="col-md-6 col-xs-12 embed-responsive mb-5">
+
+  {{ p.iframe4 }}
+            </div>
+             
+            
+        <!--Grid row-->
+
+            {% endautoescape %}
+  {% endfor %}
+   </div>
+  
+      {% endblock content%}
+
+
+
+
+
+
+      
+       <div class="container-fluid cols-xs-12">
+      <footer class="page-footer font-small unique-color-dark">
+        <div style="background-color: #C7E0F4;">
+          <div class="container">
+            <!-- Grid row-->
+            <div class="row py-4 d-flex align-items-center">
+              <!-- Grid column -->
+              <div
+                class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0"
+              >
+                <h6 class="mb-0">Síguenos en las redes sociales</h6>
+              </div>
+              <!-- Grid column -->
+
+              <!-- Grid column -->
+              <div class="col-md-6 col-lg-7 text-center text-md-right">
+                <!-- Facebook -->
+                <a class="fb-ic" href="https://www.facebook.com/nuevaculturadeldesarrollotzoani/">
+                  <i class="fab fa-facebook-f white-text mr-4"> </i>
+                </a>
+              
+              
+                <!--Instagram-->
+                <a class="ins-ic" href="https://www.instagram.com/explore/locations/200448943349255/nueva-cultura-para-el-desarrollo-social/">
+                  <i class="fab fa-instagram white-text"> </i>
+                </a>
+              </div>
+              <!-- Grid column -->
+            </div>
+            <!-- Grid row-->
+          </div>
+        </div>
+ </footer>
+        <!-- Footer Links -->
+      
+            <!-- Footer -->
+<footer class="text-center footer-style mt-3">
+    <div class="container-fluid">
+        <div class="row">
+           <div class="col-sm-12 col-md-4 pr-2 text-justify">
+            <p class="text-justify">
+                 Somos una asociación sin ánimo de lucro con sede social en Mijas.
+            Banco de alimentos para las familias más desfavorecidas. Servicios de apoyo escolar. Servicios de tramitación de documentos. Servicios de inserción laboral. Servicios de mediación. Promoción de la Cultura Y Costumbres.
+              </p>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                 <p><i class="fas fa-home mr-3"></i>C/San braulio, Mijas 29651, Málaga</p>
+                <p><i class="fas fa-phone mr-2"></i>671 85 34 85</p>
+              <p><i class="fas fa-envelope mr-3"></i>desarrollocultural2011@gmail.com</p>
+                </p>         
+            
+            </div>
+            <div class="col-sm-6 col-md-4">
+              
+                <p>
+                <a href="{% url 'app:contactos' %} ">Contacto</a>
+              </p>
+                 <p>
+                <a href="{% url 'app:datoscontactod' %} ">Aviso Legal</a>
+              </p>
+              <p>
+                <a href="{% url 'app:datoscontacto' %} ">Estatutos</a>
+              </p>
+             
+            </div>
+          </div>
+          <!-- Grid row -->
+        </div>
+        <!-- Footer Links -->
+    
+    </div>
+      </footer>
+      <!-- Footer -->
+
+    <!-- Optional JavaScript -->
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v7.0"
+      nonce="iVqPmKkg"
+    ></script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/94d365e8cc.js "
+      crossorigin="anonymous "
+    ></script>
+  </body>
+</html>

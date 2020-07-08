@@ -1,0 +1,15 @@
+{% extends 'app/index.html' %} {% load static %} {% load bootstrap4 %} 
+{% block content%}
+
+
+   <div class="row">
+        {% for p in tall %} {% autoescape off %}
+
+            <div class="col-md-6">{{ p.titulo }}
+
+                      <p class="card-text letraTarje ">{{ p.taller }}</p>
+
+            </div>    {% endautoescape %}
+  {% endfor %}
+
+{% endblock content%}

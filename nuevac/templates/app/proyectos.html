@@ -1,0 +1,32 @@
+{% extends 'app/index.html' %} {% load static %} {% load bootstrap4 %} {% block content%}
+ 
+<div class="container-fluid  ">
+ <div class="row row-cols-md-2 row-col-xs-12" >
+
+      {% for p in pro %}
+  <div class="card text-justify">
+    <div class="card ">
+      
+      <div class="card-body text-center">{{ p.titulo }}
+        <p class="card-text letraTarje "style="color: #0067B1;">{{ p.textop }}</p>
+      </div>
+    </div>
+
+    </div>
+     {% endfor %}
+  </div>
+  </div>
+</div>
+
+<!-- <div class="card-columns">
+    <div class="card bg-primary">
+      <div class="card-body text-center">
+        <p class="card-text">Some text inside the first card</p>
+      </div>
+    </div>
+    <div class="card bg-warning">
+      <div class="card-body text-center">
+        <p class="card-text">Some text inside the second card</p>
+</div> -->
+
+{% endblock content%}

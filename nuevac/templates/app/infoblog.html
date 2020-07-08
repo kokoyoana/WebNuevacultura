@@ -1,0 +1,25 @@
+{% extends 'app/index.html' %} {% load static %} {% load bootstrap4 %} {% block content%}
+
+
+<section class="dento--blog-area mt-50">  
+    <div class="container">{% autoescape off %} 
+        <div class="row justify-content-center text-justify">
+            <div class="col-12 col-lg-8 mb-100">
+                <!-- Blog Details Area -->
+                <div class="blog-details-area">
+                    <img src="{{ info.imagen.url }}"; alt="imagenblog">
+
+                    <h2 class="post-title mt-3"style="color: #0067B2";>{{ info.titulo }}</h2>
+                    <div class="post-meta">
+                        <a href="#"><i class="icon_clock_alt"></i>{{ info.fecha }}</a>
+                    </div>
+                    <p class="letraTarje mb-5 text-justify">{{ info.descripcion }}</p>
+
+                </div>
+            </div>  
+        </div>
+    </div>
+   {% endautoescape %}
+</section>
+
+{% endblock content%}

@@ -1,0 +1,15 @@
+{% extends 'app/index.html' %} {% load static %} {% load bootstrap4 %} 
+{% block content%}
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <img src="{{ aso.centroF.url }}" class="mb-3" alt="imagen" />
+      <div class="col-xs-12">
+        <p class="text-justify desA">{{ aso.textoAso }}</p>
+        <img src="{{ aso.fotop.url }} "class="mb-5" alt="imagen" />
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content%}

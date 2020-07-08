@@ -1,0 +1,46 @@
+button.navbar-toggler{
+    color:orange;
+    border-color: orange;
+    text-align: center;
+ 
+} 
+.navbar{
+    color: aliceblue;
+    padding: 0 auto;
+   
+}
+.nav-link{
+ 
+     color: orange;
+     font-size: large;
+}
+
+img {
+    height: auto;
+    max-width: 100%;
+  
+}
+
+.desA{
+  font-family: 'Indie Flower', cursive;
+  font-size: 20px;
+ 
+}
+.iconos{
+color:blue;
+}
+
+/* proyectos */
+.letraTarje{
+  font-family: 'Indie Flower', cursive;
+  font-size: 20px;
+
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+
