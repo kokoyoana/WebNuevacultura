@@ -4,12 +4,31 @@
 
    <div class="row">
         {% for p in tall %} {% autoescape off %}
+       
+            <div class="col-md-6 col-xs-12 mb-5">
+              
+      <h2 class="post-title titletrat mt-5"style="color: #0067B1;"> {{ p.titulo }}</h2>
 
-            <div class="col-md-6">{{ p.titulo }}
 
-                      <p class="card-text letraTarje ">{{ p.taller }}</p>
+                      <p class="card-text letraTarje text-justify">{{ p.taller }}</p><br>
+           
+            </div> 
+            
+              <div class="col-md-6 col-xs-12 mb-5">
 
-            </div>    {% endautoescape %}
+                      {% if p.imagentalleres %}
+    <img src="{{ p.imagentalleres.url }}">
+{% endif %}
+
+            </div>
+            
+          
+            
+         
+               {% endautoescape %}
   {% endfor %}
 
+
+    
 {% endblock content%}
+<br>

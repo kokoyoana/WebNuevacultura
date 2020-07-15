@@ -8,10 +8,13 @@ from django import forms
 class Inicio(models.Model):
     youtube = models.TextField(max_length=20000,null=True,blank=True)
     imagenInicio = models.ImageField(upload_to='static/img',blank=True)
-    iframe1= models.TextField(max_length=20000,null=True,blank=True)
-    iframe2= models.TextField(max_length=20000,null=True,blank=True)
-    iframe3= models.TextField(max_length=20000,null=True,blank=True)
-    iframe4= models.TextField(max_length=20000,null=True,blank=True)
+    fotoinicio = models.ImageField(upload_to='static/img',null=True)
+    fotodos = models.ImageField(upload_to='static/img',null=True)
+    fototres = models.ImageField(upload_to='static/img',null=True)
+    fotocuatro = models.ImageField(upload_to='static/img',null=True)
+    
+    
+
 
 class Asociacion(models.Model):
     textoAso = models.TextField(max_length=2000,null=True)
